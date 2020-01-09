@@ -2,19 +2,21 @@
 #include <stdlib.h>
 
 /*
-** Returns the larger value of two integers. Groundbreaking stuff...
+** Returns the larger value of three integers. Groundbreaking stuff...
 */
 
-int max(int num1, int num2) {
+int max(int num1, int num2, int num3) {
     int result;
-    if (num1 > num2) {
-         result = num1;
-    } else {
+    if (num1 >= num2 && num1 >= num3) {
+        result = num1;
+    } else if (num2 >= num1 && num2 >= num3) {
         result = num2;
+    } else {
+        result = num3;
     }
     return result;
 }
 
 int main() {
-    printf("%d\n", max(40, 50));
+    printf("%d\n", max(40, 50, 60));
 }
