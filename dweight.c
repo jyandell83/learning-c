@@ -1,16 +1,19 @@
 #include <stdio.h>
 
 /*
-** Computes the dimensional weight of a 12" x 10" x 8" box
+** Computes the dimensional weight of a box with input from user
 */
 
 int main(void)
 {
     int height, length, width, volume, weight;
 
-    height = 8;
-    length = 12;
-    width = 10;
+    printf("Enter height of box: ");
+    scanf("%d", &height);
+    printf("Enter length of box: ");
+    scanf("%d", &length);
+    printf("Enter width of box: ");
+    scanf("%d", &width);
     volume = height * length * width;
     weight = (volume + 165) / 166;
 
