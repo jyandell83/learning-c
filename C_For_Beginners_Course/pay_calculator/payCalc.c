@@ -24,9 +24,25 @@ int main()
         grossPay += hours * PAY_RATE;
     }
 
+    if (grossPay >= 300) {
+        if (grossPay > 450) {
+            taxes += ((grossPay - 450) * TAX_3) + (150 * TAX_2);
+        } else {
+            taxes += (grossPay - 300) * TAX_2;
+        }
+        taxes += 300 * TAX_1;
+    } else {
+        taxes += grossPay * TAX_1;
+    }
 
+
+
+    printf("*****************************\n");
     printf("Total Hours: %.2f\n", hours + overtimeHours);
-    printf("Total Pay: %.2f\n", grossPay);
+    printf("Total Pay: $%.2f\n", grossPay);
+    printf("Total Taxes: $%.2f\n", taxes);
+    printf("NetPay: $%.2f\n", grossPay - taxes);
+    printf("*****************************\n");
 
     return 0;
 }
