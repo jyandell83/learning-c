@@ -9,13 +9,25 @@
 int main()
 {
     time_t t;
+    int tries = 5;
+    int guess;
+    int randomNumber;
+    _Bool success = 0;
+    char ready;
 
+    // This makes a random number between 0 - 20
     srand((unsigned) time(&t));
+    randomNumber = rand() % 21;
 
-    int randomNumber = rand() % 21;
+    printf("Welcome to the most exciting game you have ever played!\n");
+    printf("I have chosen a number between 0 - 20, you have %d tries?\n", tries);
 
-    printf("%i", randomNumber);
 
+    // This asks user to begin to play
+    do {
+        printf("Are you ready to play? Y/N\n");
+        scanf(" %c", &ready);
+    } while (ready != 'Y');
 
     return 0;
 }
