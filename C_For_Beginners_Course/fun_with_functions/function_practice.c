@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 
 unsigned int findGCD (unsigned int num1, unsigned int num2) {
@@ -17,10 +18,21 @@ double findAbsValue (double value) {
     return value >= 0 ? value : value * -1;
 }
 
-/*
-float findSqRoot (float num) {
+double findSqRoot (double num) {
+     
+    double square;
+
+    if (num >= 0) {
+        square = sqrt(findAbsValue(num));
+    } else {
+        printf("Number is negative\n");
+        square = -1.0;
+    }
+
+
+    return square;
 }
-*/
+        
 int main()
 {
     printf("GCD of 8 and 12 is %d\n", findGCD(8, 12));
@@ -31,6 +43,10 @@ int main()
     printf("The absolute value of 10.2403 is %lf\n", findAbsValue(10.2403));
     printf("The absolute value of -2000.034 is %lf\n", findAbsValue(-2000.034));
     printf("The absolute value of -100 is %lf\n", findAbsValue(-100));
+
+
+    printf("The square root of 4 is %lf\n", findSqRoot(4));
+    printf("The square root of -25  is %lf\n", findSqRoot(-25));
 
     return 0;
 }
