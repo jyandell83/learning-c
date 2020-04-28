@@ -66,24 +66,27 @@ bool checkForWin( char arr[10] ) {
 int main()
 {
     int choice;
-    char *tempStr;
+    int currentPlayer = 1;
     char gameState[10] = "123456789";
+
     renderBoard(gameState);
 
     while (!checkForWin(gameState)) {
         
-        printf("Pick a square:");
+        printf("Player %d, Pick a square:", currentPlayer);
         scanf("%d", &choice);
 
-        markBoard(gameState, choice, 'X');
+        markBoard(gameState, choice - 1, currentPlayer == 1 ? 'X': 'O');
+
+        currentPlayer = currentPlayer == 1 ? 2 : 1; 
 
 
         renderBoard(gameState);
     }
 
+    currentPlayer = currentPlayer == 1 ? 2 : 1; 
 
-    if (checkForWin(gameState))
-        printf("winner");
+    printf("Player %d is the Winner\n\n", currentPlayer);
 
     return 0;
 }
