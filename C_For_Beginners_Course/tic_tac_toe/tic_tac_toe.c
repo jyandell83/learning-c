@@ -37,7 +37,23 @@ bool checkForWin( char arr[9] ) {
         threeInARow = 1;
     
     //check columns
+
+    if (arr[0] == arr[3] && arr[0] == arr[6])
+        threeInARow = 1;
+
+    if (arr[1] == arr[4] && arr[1] == arr[7])
+        threeInARow = 1;
+
+    if (arr[2] == arr[5] && arr[2] == arr[8])
+        threeInARow = 1;
+
     //check diagonals
+
+    if (arr[0] == arr[4] && arr[0] == arr[8])
+        threeInARow = 1;
+
+    if (arr[2] == arr[4] && arr[2] == arr[6])
+        threeInARow = 1;
 
     return threeInARow;
 }
@@ -47,10 +63,6 @@ int main()
     char gameState[9] = "123456789";
 
     renderBoard(gameState);
-
-    gameState[0] = 'X';
-    gameState[1] = 'X';
-    gameState[2] = 'X';
 
     if (checkForWin(gameState))
         printf("winner");
