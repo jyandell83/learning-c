@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void renderBoard() {
+void renderBoard( char arr[9]) {
 
     system("clear");
 
@@ -10,13 +10,13 @@ void renderBoard() {
     printf("\nPlayer 1 (X) - Player 2 (O)\n\n");
 
     printf("   |   |   \n");
-    printf(" 1 | 2 | 3 \n");
+    printf(" %c | %c | %c \n", arr[0], arr[1], arr[2]);
     printf("___|___|___\n");
     printf("   |   |   \n");
-    printf(" 4 | 5 | 6 \n");
+    printf(" %c | %c | %c \n", arr[3], arr[4], arr[5]);
     printf("___|___|___\n");
     printf("   |   |   \n");
-    printf(" 7 | 8 | 9 \n");
+    printf(" %c | %c | %c \n", arr[6], arr[7], arr[8]);
     printf("   |   |   \n\n");
 }
 
@@ -24,6 +24,8 @@ void renderBoard() {
 
 int main()
 {
-    renderBoard();
+    char gameState[9] = "123456789";
+
+    renderBoard(gameState);
     return 0;
 }
