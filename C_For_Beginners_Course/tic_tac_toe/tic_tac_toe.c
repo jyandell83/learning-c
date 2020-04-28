@@ -21,6 +21,11 @@ void renderBoard( char arr[9]) {
     printf("   |   |   \n\n");
 }
 
+char* markBoard ( char arr[9], int choice, char xOrO) {
+    arr[choice] = xOrO; 
+    return arr;
+}
+
 bool checkForWin( char arr[9] ) {
 
     bool threeInARow = 0;
