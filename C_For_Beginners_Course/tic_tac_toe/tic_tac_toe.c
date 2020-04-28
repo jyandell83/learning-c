@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <stdbool.h>
 
-void renderBoard( char arr[9]) {
+void renderBoard( char arr[10]) {
 
     system("clear");
 
@@ -21,12 +22,11 @@ void renderBoard( char arr[9]) {
     printf("   |   |   \n\n");
 }
 
-char* markBoard ( char arr[9], int choice, char xOrO) {
+void markBoard ( char arr[], int choice, char xOrO) {
     arr[choice] = xOrO; 
-    return arr;
 }
 
-bool checkForWin( char arr[9] ) {
+bool checkForWin( char arr[10] ) {
 
     bool threeInARow = 0;
 
@@ -65,9 +65,22 @@ bool checkForWin( char arr[9] ) {
 
 int main()
 {
-    char gameState[9] = "123456789";
-
+    int choice;
+    char *tempStr;
+    char gameState[10] = "123456789";
     renderBoard(gameState);
+
+    while (!checkForWin(gameState)) {
+        
+        printf("Pick a square:");
+        scanf("%d", &choice);
+
+        markBoard(gameState, choice, 'X');
+
+
+        renderBoard(gameState);
+    }
+
 
     if (checkForWin(gameState))
         printf("winner");
