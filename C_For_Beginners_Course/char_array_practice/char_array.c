@@ -15,6 +15,22 @@ int determineCharNumberInString (char inputStr[]) {
 
 // Concatenates 2 strings
 
+void concatsTwoStrings (char result[], char str1[], char str2[]) {
+    
+    int index = 0;
+
+    for (int i = 0; str1[i] != '\0'; ++i) {
+        result[i] = str1[i];
+        index++;
+    }
+
+
+    for (int j = 0; str2[j] != '\0'; ++j) {
+        result[index++] = str2[j];
+    }
+    
+}
+
 // Determines if two strings are equal
 int main()
 {
@@ -25,5 +41,8 @@ int main()
 
     printf("%s contains %d characters\n", test, determineCharNumberInString(test));
 
+    char test2[1000];
+    concatsTwoStrings(test2, "cat", "dog");
+    printf("%s this should say catdog\n", test2);
     return 0;
 }
