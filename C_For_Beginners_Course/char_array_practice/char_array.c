@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include <stdbool.h> 
+#include <string.h>
+
 // Playing with some functions to help cement knowledge of char arrays / strings
 
-// Takes string as input and calculates the number of chars
 
 int determineCharNumberInString (char inputStr[]) {
 
@@ -13,7 +15,6 @@ int determineCharNumberInString (char inputStr[]) {
     return countOfChars;
 }
 
-// Concatenates 2 strings
 
 void concatsTwoStrings (char result[], char str1[], char str2[]) {
     
@@ -32,6 +33,24 @@ void concatsTwoStrings (char result[], char str1[], char str2[]) {
 }
 
 // Determines if two strings are equal
+
+bool areTwoStringsEqual (char str1[], char str2[]) {
+
+    bool result = true;
+
+    if (strlen(str1) != strlen(str2)) {
+        result = false;
+    } else {
+        for (int i = 0; str1[i] != '\0'; ++i) {
+            if (str1[i] != str2[i]) {
+                result = false;
+            }
+        }
+    }
+    
+    return result;
+}
+
 int main()
 {
     char test[20]; 
@@ -44,5 +63,14 @@ int main()
     char test2[1000];
     concatsTwoStrings(test2, "cat", "dog");
     printf("%s this should say catdog\n", test2);
+
+    char test3[] = "doggie";
+    char test4[] = "doggie";
+    
+    if (areTwoStringsEqual(test3, test4)) {
+        printf("EQUAL\n");
+    } else {
+        printf("NOT EQUAL\n");
+    }
     return 0;
 }
