@@ -19,15 +19,30 @@ void reverseString (char str[]) {
 
 }
 
+void sortStrings(char arr[25][50], int n) 
+{ 
+    char temp[100]; 
+  
+    // Sorting strings using bubble sort 
+    for (int j=0; j<n-1; j++) 
+    { 
+        for (int i=j+1; i<n; i++) 
+        { 
+            if (strcmp(arr[j], arr[i]) > 0) 
+            { 
+                strcpy(temp, arr[j]); 
+                strcpy(arr[j], arr[i]); 
+                strcpy(arr[i], temp); 
+            } 
+        } 
+    } 
+} 
 
-
-/* -----------------------------    
 int main()
 {
     char stringInput[50];
     int stringNumber;
     char stringArray[25][50];
-    char temp[50];
     int i, j;
 
     printf("Please enter a word (under 50 characters) to be reversified: ");
@@ -37,7 +52,7 @@ int main()
 
     printf("Begin Bubble Sort\n");
 
-    printf("Input number of strings");
+    printf("Input number of strings: ");
     scanf("%d", &stringNumber);
 
     printf("Input string %d: \n", stringNumber);
@@ -46,76 +61,13 @@ int main()
         scanf("%s", stringArray[i]);
     }
 
-    //Bubble Sort
 
-    for (i = 1; i <= stringNumber - 1; i++) 
-        for (j = 0; j <=stringNumber; j++) 
-            if (strcmp(stringArray[j], stringArray[j+1]) > 0) {
-                strncpy(temp,stringArray[j], sizeof(temp) - 1);
-                strncpy(stringArray[j], stringArray[j+1], sizeof(stringArray[j]) - 1);
-                strncpy(stringArray[j+1], temp, sizeof(stringArray[j] + 1) - 1);
-            }
-        
-    
+    sortStrings(stringArray, stringNumber);
 
     printf("The Strings appear after sorting: \n");
 
-    for (i = 0; i <= stringNumber; i++) {
-        printf("%s\n", stringArray[i]);
+    for (i = 0; i < stringNumber; i++) {
+        printf("%s<---\n", stringArray[i]);
     }
-    return 0;
-}
-*/
-
-int main()
-{
-    char str[100];
-    char name[25][50], temp[25];
-    int l, i, n, j;
-
-    printf("\n\nPrint individual characters of string in reverse order :\n");
-    printf("----------------------------------------------------------\n");
-    printf("Input the string :");
-    scanf("%s", str);
-
-    l = strlen(str);
-
-    printf("The characters of the string in reverse are : \n");
-
-    for (i = l; i >=0; i--)
-    {
-        printf("%c", str[i]);
-    }
-
-    printf("\n");
-    printf("----------------------------------------------------------");
-
-    printf("\n\nSorts the strings of an array using bubble sort :  \n");
-    printf("---------------------------------------------------------\n");
-
-    printf("Input number of strings :");
-    scanf("%d", &n);
-
-    printf("Input string %d : \n", n);
-
-    for (i = 0; i < n; i++)
-    {
-        scanf("%s", name[i]);
-    }
-
-    for(i=1;i<=n;i++)
-        for(j=0;j<=n-i;j++)
-            if(strcmp(name[j],name[j+1])>0)
-            {
-                strncpy(temp,name[j], sizeof(temp) - 1);
-                strncpy(name[j],name[j+1], sizeof(name[j]) - 1);
-                strncpy(name[j+1],temp, sizeof(name[j] + 1) - 1);
-            }
-
-    printf("The strings appear after sorting :\n");
-
-    for (i = 0; i <= n; i++)
-        printf("%s\n", name[i]);
-
     return 0;
 }
