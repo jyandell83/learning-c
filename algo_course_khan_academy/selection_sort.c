@@ -20,9 +20,22 @@ int indexOfMinimum(int array[11], int startIndex) {
     return minIndex;
 }
 
+void selectionSort(int array[11]) {
+
+    int index;
+
+    for (int i = 0; array[i] != '\0'; ++i) {
+        index = indexOfMinimum(array, i);
+        swap(array, i, index);
+    }
+
+}
+
 int main()
 {
     int testArray[11] = {121, 2, 33, 554, 5, 76, 7, 78, 9, 10};
+
+    selectionSort(testArray);
 
     int i = 0, j = 0;
 
@@ -31,6 +44,7 @@ int main()
         i++;
     }
 
+    /*
     swap(testArray, 2, 5);
 
     printf("%d-------should be 1\n", indexOfMinimum(testArray, 0));
@@ -39,6 +53,7 @@ int main()
         printf("%d\n", testArray[j]);
         j++;
     }
+    */
 
     return 0;
 }
