@@ -10,11 +10,18 @@ int main()
 {
     int testArray[11] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-    int i = 0;
+    int i = 0, j = 0;
 
     while (testArray[i] != '\0') {
         printf("%d\n", testArray[i]);
         i++;
+    }
+
+    swap(testArray, 2, 5);
+
+    while (testArray[j] != '\0') {
+        printf("%d\n", testArray[j]);
+        j++;
     }
 
     return 0;
